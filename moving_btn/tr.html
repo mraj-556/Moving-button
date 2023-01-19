@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            /* background: rgb(2,0,36); */
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(99,162,74,0.9587185215883228) 18%, rgba(0,212,255,1) 76%);
+        }
+        form{
+            background-color: rgba(0, 255, 225,0.6);
+            /* background-color: black; */
+            width: 50vw;
+            justify-content:center;
+            text-align:center ;
+            height: 25vw;
+            margin: auto;
+            margin-top: 7vw;
+            display: flex;
+            flex-direction: column;
+            border: 20px solid rgba(171, 255, 25, 0.08);
+            border-radius: 40px;
+        }
+        input{
+            width: 15vw;
+            text-align: center;
+            margin-top: 3vw;
+            margin-left: 17vw;
+            height: 2vw;
+            border: 2px solid green;
+            border-radius: 5vw;
+        }
+        #sub_btn{
+            width: 7vw;
+            font-size: 1.2vw;
+            font-weight: 600;
+            margin-left: 21vw;
+            background-color: green;
+            border: 3px solid black;
+        }
+        #sub_btn:hover{
+            background: #fd0505;
+            box-shadow: 0 0 50px #830202;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" id="f1">
+        <h2>Log In</h2>
+        <input type="text" name="u_n" id="u_n" placeholder="Username">
+        <input type="text" name="u_p" id="u_p" placeholder="Password">
+        <input type="submit" id="sub_btn" value="Submit" onmouseover="btn_move('in')" onmouseout="btn_move('out')">
+    </form> 
+    <div id="target"></div>
+    <script>
+        function btn_move(s){
+            let u = document.getElementById("u_n").value;
+            let p = document.getElementById("u_p").value;
+            let btn = document.getElementById("sub_btn");
+            if ( (u === "" || p === "") && s==="in" ){
+                let pos = getComputedStyle(btn).marginLeft;
+                // document.getElementById("target").innerText = pos;
+                if (pos==="460.8px"){
+                    // document.getElementById("target").innerText = "Right";
+                    btn.style.marginLeft="15vw";                   
+                }
+                else if (pos==="230.4px"){
+                    // document.getElementById("target").innerText = "left"; 
+                    btn.style.marginLeft="30vw";                   
+                }
+                else{
+                    btn.style.marginLeft="30vw";
+                }
+            }
+            else if ( u != "" && p != "" ){
+                // document.getElementById("target").innerText = s;
+                btn.style.marginLeft="21vw";
+            }
+        }
+    </script>   
+</body>
+</html>
